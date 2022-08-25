@@ -42,6 +42,32 @@ export const Biogenerator = () => {
             <input type="text"></input>
             <button>Random Occupation</button>
           </div>
+          <div className="box">
+            <input type="checkbox" value="false"></input>
+            <label>Religious background</label>
+            <br />
+            <textarea rows="5" cols="50"></textarea>
+            <br />
+            <button>Random religion</button>
+          </div>
+          <div className="box">
+            <input type="checkbox" value="false"></input>
+            <label
+              style={{
+                verticalAlign: "middle",
+                margin: "3px",
+                marginBottom: "6px",
+                padding: "0",
+                color: "#222",
+              }}
+            >
+              meeting reason
+            </label>
+            <textarea className="textarea" rows="5" cols="20"></textarea>
+            <button className="selectbutton">For peace</button>
+            <button className="selectbutton">For personal reason</button>
+            <button className="selectbutton">For prayer</button>
+          </div>
         </div>
         <div className="result" id="result">
           <h2 className="box">Result</h2>
