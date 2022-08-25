@@ -1,10 +1,26 @@
 import { useEffect, useState } from "react";
 import "./BioGenerator.css";
 
-
 export const Biogenerator = () => {
+  const [name, setName] = useState("Mubarak");
   const [image, setimage] = useState("");
+  const [location, setLocation] = useState("Belgaum");
+  const [gender, setGender] = useState("male");
+  const [isCheckedLocation, setIsCheckedLocation] = useState(true);
 
+  const handleInputName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleGender = (e) => {
+    setGender(e.target.value);
+  };
+  const handleOnChangeLocation = () => {
+    setIsCheckedLocation(!isCheckedLocation);
+  };
+  const handleInputLocation = (e) => {
+    setLocation(e.target.value);
+  };
 
   const photoUpload = (e) => {
     const reader = new FileReader();
@@ -31,18 +47,31 @@ export const Biogenerator = () => {
           </div>
           <div className="box">
             <label>Name</label>
-            <input type="text" placeholder="Enter name" />
+            <input
+              type="text"
+              placeholder="Enter name"
+              value={name}
+              onChange={handleInputName}
+            />
             <label>Gender</label>
-            <select>
+            <select onChange={(e) => handleGender(e)}>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
             <button>Random name</button>
           </div>
           <div className="box">
-            <input type="checkbox" value="false"></input>
+            <input
+              type="checkbox"
+              value="false"
+              checked={isCheckedLocation}
+              onChange={handleOnChangeLocation}
+            ></input>
             <label>Location</label>
-            <input type="text"></input>
+            <input type="text"
+            value={location}
+            onChange={handleInputLocation}
+            ></input>
             <button>Random Location</button>
           </div>
           <div className="box">
@@ -91,11 +120,13 @@ export const Biogenerator = () => {
         <div className="result" id="result">
           <h2 className="box">Result</h2>
           <div className="imagediv">
-          {image ? <img src={image} alt="profile photo" /> : null}
+            {image ? <img src={image} alt="profile photo" /> : null}
           </div>
 
           <div className="box">
-           
+            {name}
+            {gender}
+            {location}
           </div>
         </div>
       </div>
