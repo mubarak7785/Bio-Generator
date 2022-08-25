@@ -71,6 +71,13 @@ export const Biogenerator = () => {
         </div>
         <div className="result" id="result">
           <h2 className="box">Result</h2>
+          <div className="imagediv">
+            
+          </div>
+
+          <div className="box">
+           
+          </div>
         </div>
       </div>
     </div>
