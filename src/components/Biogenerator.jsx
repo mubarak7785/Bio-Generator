@@ -1,5 +1,24 @@
+import { useEffect, useState } from "react";
 import "./BioGenerator.css";
+
+
 export const Biogenerator = () => {
+  const [image, setimage] = useState("");
+
+
+  const photoUpload = (e) => {
+    const reader = new FileReader();
+    const file = e.target.files[0];
+    reader.onloadend = () => {
+      setimage(reader.result);
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result,
+      });
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
     <div className="App" id="app">
       <h1 className="heading">Bio - Generator</h1>
@@ -8,7 +27,7 @@ export const Biogenerator = () => {
           <h2 className="box">Options</h2>
           <div className="box">
             <label>Profile photo</label>
-            <input type="file"></input>
+            <input type="file" onChange={photoUpload}></input>
           </div>
           <div className="box">
             <label>Name</label>
@@ -72,7 +91,7 @@ export const Biogenerator = () => {
         <div className="result" id="result">
           <h2 className="box">Result</h2>
           <div className="imagediv">
-            
+          {image ? <img src={image} alt="profile photo" /> : null}
           </div>
 
           <div className="box">
