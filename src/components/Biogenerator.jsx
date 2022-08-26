@@ -71,6 +71,11 @@ export const Biogenerator = () => {
     setIsChecked(!isChecked);
   };
 
+  const generateRandomName = () => {
+    let schoolArray = ["Mubarak", "Asif", "Tousif", "Pavan","Vishal","Jhon","Satya","Vijay"];
+    setName(schoolArray[Math.floor(Math.random() * 8)]);
+  };
+
   const photoUpload = (e) => {
     const reader = new FileReader();
     const file = e.target.files[0];
@@ -107,7 +112,7 @@ export const Biogenerator = () => {
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
-            <button>Random name</button>
+            <button onClick={generateRandomName}>Random name</button>
           </div>
           <div className="box">
             <input
