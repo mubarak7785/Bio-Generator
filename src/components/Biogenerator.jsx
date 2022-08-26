@@ -7,10 +7,14 @@ export const Biogenerator = () => {
   const [location, setLocation] = useState("Belgaum");
   const [gender, setGender] = useState("male");
   const [school, setSchool] = useState("GIT");
+  const [religion, setReligion] = useState("Hindu");
   const [occupation, setOccupation] = useState("Engineer");
   const [stream, setStream] = useState("Engineering");
+  const [meeting, setMeeting] = useState("just conversation");
   const [isCheckedOccuption, setIsCheckedoccuption] = useState(true);
+  const [isChecked, setIsChecked] = useState(true);
   const [isCheckedLocation, setIsCheckedLocation] = useState(true);
+  const [isCheckedReligion, setIsCheckedReligion] = useState(true);
   const [isCheckedSchool, setIsCheckedSchool] = useState(true);
 
 
@@ -49,6 +53,22 @@ export const Biogenerator = () => {
 
   const handleOnChangeOccuption = () => {
     setIsCheckedoccuption(!isCheckedOccuption);
+  };
+
+  const handleReligion = (e) => {
+    setReligion(e.target.value);
+  };
+
+  const handleOnChangeReligion = () => {
+    setIsCheckedReligion(!isCheckedReligion);
+  };
+
+  const handleMeeting = (e) => {
+    setMeeting(e.target.value);
+  };
+
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
   };
 
   const photoUpload = (e) => {
@@ -133,15 +153,18 @@ export const Biogenerator = () => {
             <button>Random Occupation</button>
           </div>
           <div className="box">
-            <input type="checkbox" value="false"></input>
+            <input type="checkbox" value="false"  checked={isCheckedReligion}
+              onChange={handleOnChangeReligion}></input>
             <label>Religious background</label>
             <br />
-            <textarea rows="5" cols="50"></textarea>
+            <textarea rows="5" cols="50"  value={religion}
+              onChange={handleReligion}></textarea>
             <br />
             <button>Random religion</button>
           </div>
           <div className="box">
-            <input type="checkbox" value="false"></input>
+            <input type="checkbox" value="false"  checked={isChecked}
+              onChange={handleOnChange} ></input>
             <label
               style={{
                 verticalAlign: "middle",
@@ -153,7 +176,8 @@ export const Biogenerator = () => {
             >
               meeting reason
             </label>
-            <textarea className="textarea" rows="5" cols="20"></textarea>
+            <textarea className="textarea" rows="5" cols="20"  value={meeting}
+              onChange={handleMeeting}></textarea>
             <button className="selectbutton">For peace</button>
             <button className="selectbutton">For personal reason</button>
             <button className="selectbutton">For prayer</button>
@@ -172,6 +196,8 @@ export const Biogenerator = () => {
             {school}
             {stream}
             {occupation}
+            {religion}
+            {meeting}
           </div>
         </div>
       </div>
