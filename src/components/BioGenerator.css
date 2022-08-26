@@ -65,3 +65,7 @@
     border-radius: 20%;
     box-sizing: content-box;
   }
+
+  Button:hover{
+    cursor: pointer;
+  }

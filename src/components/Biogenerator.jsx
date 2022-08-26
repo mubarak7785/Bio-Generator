@@ -6,8 +6,8 @@ export const Biogenerator = () => {
   const [image, setimage] = useState("./zayn.jpg");
   const [location, setLocation] = useState("Belgaum");
   const [gender, setGender] = useState("male");
-  const [school, setSchool] = useState("GIT Institute");
-  const [religion, setReligion] = useState("Hindu");
+  const [school, setSchool] = useState("GIT Institute Technology");
+  const [religion, setReligion] = useState("atheist, and has no experience with spiritual things");
   const [occupation, setOccupation] = useState("Engineer");
   const [stream, setStream] = useState("Engineering");
   const [meeting, setMeeting] = useState("just conversation");
@@ -82,7 +82,7 @@ export const Biogenerator = () => {
   };
 
   const generateRandomSchool = () => {
-    let schoolArray = ["GIT Institute", "Adarsh Internatinal School", "KLE Institute", "JNMC School","Ligayat Education School","Junnedia BRT School","Puna College Branch SChool","Gogte Technology School"];
+    let schoolArray = ["GIT Institute Technology", "Adarsh Internatinal School", "KLE Institute", "JNMC School","Ligayat Education School","Junnedia BRT School","Puna College Branch SChool","Gogte Technology School"];
     setSchool(schoolArray[Math.floor(Math.random() * 8)]);
     console.log();
   };
@@ -99,8 +99,8 @@ export const Biogenerator = () => {
   };
 
   const generateRandomReligion = () => {
-    let religionArray = ["Hindu", "sikh", "jain", "Buddhist","Muslim"];
-    setReligion(religionArray[Math.floor(Math.random() * 5)]);
+    let religionArray = ["atheist, and has no experience with spiritual things", "in a Christian home with little activity within his religion", "in a family that always encouraged a belief in God, but never attended one church consistently","in a dysfunctional family that had little to no belief in God, or believed in a harsh deity","Lutheran, and has a strong belief in Christ and the Bible","without any religion in the home. For most of [PossessivePronoun] life, [SubjectPronoun] has never had any interest in spiritual things"];
+    setReligion(religionArray[Math.floor(Math.random() * 6)]);
     console.log();
   };
 
@@ -212,14 +212,20 @@ export const Biogenerator = () => {
             <textarea className="textarea" rows="5" cols="20"  value={meeting}
               onChange={handleMeeting}></textarea>
             <button className="selectbutton"
-             onClick={() => setMeeting("for peace of mind")}
+             onClick={() => setMeeting("for peace of mind for his life carrier")}
             >For peace</button>
             <button className="selectbutton"  
-             onClick={() => setMeeting("for personal reason")}
+             onClick={() => setMeeting("for personal reason so that can figure out the solution of the problem")}
             >For personal reason</button>
             <button className="selectbutton"
-            onClick={() => setMeeting("for payer to fill energetic ")}
+            onClick={() => setMeeting("for payer to fill energetic and to have some positive vibes for the day and for the relax mind")}
             >For prayer</button>
+            <button className="selectbutton"
+            onClick={() => setMeeting("struggles to understand why bad things happen to good people")}
+            >Plan of Salvation</button>
+            <button className="selectbutton"
+            onClick={() => setMeeting("he believes that meeting with the missionaries will help [ObjectPronoun] to be a more spiritual and righteous person")}
+            >Any Lessons</button>
           </div>
         </div>
         <div className="result" id="result">
@@ -229,14 +235,23 @@ export const Biogenerator = () => {
           </div>
 
           <div className="box">
-            {name}
-            {gender}
-            {location}
-            {school}
-            {stream}
-            {occupation}
-            {religion}
-            {meeting}
+          {name} {isCheckedLocation ? `is from ${location}` : null}{" "}
+            {isCheckedSchool
+              ? `${
+                  gender == "male" ? "He" : "She"
+                } is studying ${stream} from ${school}`
+              : null}
+            .
+            {isCheckedOccuption
+              ? `${
+                  gender == "male" ? " His" : " Her"
+                } occupation is ${occupation}`
+              : null}
+            {isCheckedReligion
+              ? `${gender == "male" ? " His" : " Her"} was raised ${religion}`
+              : null}{" "}
+            {gender == "male" ? "He" : "She"}{" "}
+            {isChecked ? `wants to meet you for ${meeting}` : null}
           </div>
         </div>
       </div>
