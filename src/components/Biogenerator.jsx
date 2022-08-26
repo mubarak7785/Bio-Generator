@@ -6,7 +6,14 @@ export const Biogenerator = () => {
   const [image, setimage] = useState("");
   const [location, setLocation] = useState("Belgaum");
   const [gender, setGender] = useState("male");
+  const [school, setSchool] = useState("GIT");
+  const [occupation, setOccupation] = useState("Engineer");
+  const [stream, setStream] = useState("Engineering");
+  const [isCheckedOccuption, setIsCheckedoccuption] = useState(true);
   const [isCheckedLocation, setIsCheckedLocation] = useState(true);
+  const [isCheckedSchool, setIsCheckedSchool] = useState(true);
+
+
 
   const handleInputName = (e) => {
     setName(e.target.value);
@@ -15,11 +22,33 @@ export const Biogenerator = () => {
   const handleGender = (e) => {
     setGender(e.target.value);
   };
+
   const handleOnChangeLocation = () => {
     setIsCheckedLocation(!isCheckedLocation);
   };
+
   const handleInputLocation = (e) => {
     setLocation(e.target.value);
+  };
+
+  const handleOnChangeSchool = () => {
+    setIsCheckedSchool(!isCheckedSchool);
+  };
+
+  const handleInputSchool = (e) => {
+    setSchool(e.target.value);
+  };
+
+  const handleInputStream = (e) => {
+    setStream(e.target.value);
+  };
+
+  const handleOccupation = (e) => {
+    setOccupation(e.target.value);
+  };
+
+  const handleOnChangeOccuption = () => {
+    setIsCheckedoccuption(!isCheckedOccuption);
   };
 
   const photoUpload = (e) => {
@@ -75,19 +104,32 @@ export const Biogenerator = () => {
             <button>Random Location</button>
           </div>
           <div className="box">
-            <input type="checkbox" value="false"></input>
+            <input type="checkbox" value="false" checked={isCheckedSchool}
+              onChange={handleOnChangeSchool}></input>
             <label>School</label>
-            <input type="text"></input>
+            <input type="text"
+              value={school}
+              onChange={handleInputSchool}
+            ></input>
             <button>Random School</button>
             <br />
             <label>Specialization</label>
-            <input type="text"></input>
+            <input type="text"
+            value={stream}
+            onChange={handleInputStream}
+            ></input>
             <button>Random Specialization</button>
           </div>
           <div className="box">
-            <input type="checkbox" value="false"></input>
+            <input type="checkbox" value="false"
+             checked={isCheckedOccuption}
+             onChange={handleOnChangeOccuption}
+            ></input>
             <label>Occupation</label>
-            <input type="text"></input>
+            <input type="text"
+            value={occupation}
+            onChange={handleOccupation}
+            ></input>
             <button>Random Occupation</button>
           </div>
           <div className="box">
@@ -127,6 +169,9 @@ export const Biogenerator = () => {
             {name}
             {gender}
             {location}
+            {school}
+            {stream}
+            {occupation}
           </div>
         </div>
       </div>
