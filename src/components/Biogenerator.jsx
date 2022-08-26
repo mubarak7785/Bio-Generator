@@ -10,7 +10,7 @@ export const Biogenerator = () => {
   const [religion, setReligion] = useState("atheist, and has no experience with spiritual things");
   const [occupation, setOccupation] = useState("Engineer");
   const [stream, setStream] = useState("Engineering");
-  const [meeting, setMeeting] = useState("just conversation");
+  const [meeting, setMeeting] = useState("just for personal reason so that can figure out the solution of the problem");
   const [isCheckedOccuption, setIsCheckedoccuption] = useState(true);
   const [isChecked, setIsChecked] = useState(true);
   const [isCheckedLocation, setIsCheckedLocation] = useState(true);
