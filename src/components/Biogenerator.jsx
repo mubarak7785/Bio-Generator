@@ -3,7 +3,7 @@ import "./BioGenerator.css";
 
 export const Biogenerator = () => {
   const [name, setName] = useState("Mubarak");
-  const [image, setimage] = useState("");
+  const [image, setimage] = useState("./zayn.jpg");
   const [location, setLocation] = useState("Belgaum");
   const [gender, setGender] = useState("male");
   const [school, setSchool] = useState("GIT");
