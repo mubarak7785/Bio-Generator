@@ -6,7 +6,7 @@ export const Biogenerator = () => {
   const [image, setimage] = useState("./zayn.jpg");
   const [location, setLocation] = useState("Belgaum");
   const [gender, setGender] = useState("male");
-  const [school, setSchool] = useState("GIT");
+  const [school, setSchool] = useState("GIT Institute");
   const [religion, setReligion] = useState("Hindu");
   const [occupation, setOccupation] = useState("Engineer");
   const [stream, setStream] = useState("Engineering");
@@ -82,10 +82,28 @@ export const Biogenerator = () => {
   };
 
   const generateRandomSchool = () => {
-    let schoolArray = ["GIT Intitute", "Adarsh Internatinal School", "KLE Institute", "JNMC School","Ligayat Education School","Junnedia BRT School","Puna College Branch SChool","Gogte Technology School"];
+    let schoolArray = ["GIT Institute", "Adarsh Internatinal School", "KLE Institute", "JNMC School","Ligayat Education School","Junnedia BRT School","Puna College Branch SChool","Gogte Technology School"];
     setSchool(schoolArray[Math.floor(Math.random() * 8)]);
     console.log();
   };
+
+  const generateRandomSpecialization = () => {
+    let nameArr = ["Science", "Arts", "commerce", "Socialscience","Agriculture"];
+    setStream(nameArr[Math.floor(Math.random() * 5)]);
+  };
+
+  const generateRandomOccupation = () => {
+    let OccuptionArray = ["Engineer", "Developer", "businessman", "Politacian","Tester","Doctor","Welder","Tailor"];
+    setOccupation(OccuptionArray[Math.floor(Math.random() * 8)]);
+    console.log();
+  };
+
+  const generateRandomReligion = () => {
+    let religionArray = ["Hindu", "sikh", "jain", "Buddhist","Muslim"];
+    setReligion(religionArray[Math.floor(Math.random() * 5)]);
+    console.log();
+  };
+
   const photoUpload = (e) => {
     const reader = new FileReader();
     const file = e.target.files[0];
@@ -153,7 +171,7 @@ export const Biogenerator = () => {
             value={stream}
             onChange={handleInputStream}
             ></input>
-            <button>Random Specialization</button>
+            <button onClick={generateRandomSpecialization}>Random Specialization</button>
           </div>
           <div className="box">
             <input type="checkbox" value="false"
@@ -165,7 +183,7 @@ export const Biogenerator = () => {
             value={occupation}
             onChange={handleOccupation}
             ></input>
-            <button>Random Occupation</button>
+            <button onClick={generateRandomOccupation}>Random Occupation</button>
           </div>
           <div className="box">
             <input type="checkbox" value="false"  checked={isCheckedReligion}
@@ -175,7 +193,7 @@ export const Biogenerator = () => {
             <textarea rows="5" cols="50"  value={religion}
               onChange={handleReligion}></textarea>
             <br />
-            <button>Random religion</button>
+            <button onClick={generateRandomReligion}>Random religion</button>
           </div>
           <div className="box">
             <input type="checkbox" value="false"  checked={isChecked}
@@ -193,9 +211,15 @@ export const Biogenerator = () => {
             </label>
             <textarea className="textarea" rows="5" cols="20"  value={meeting}
               onChange={handleMeeting}></textarea>
-            <button className="selectbutton">For peace</button>
-            <button className="selectbutton">For personal reason</button>
-            <button className="selectbutton">For prayer</button>
+            <button className="selectbutton"
+             onClick={() => setMeeting("for peace of mind")}
+            >For peace</button>
+            <button className="selectbutton"  
+             onClick={() => setMeeting("for personal reason")}
+            >For personal reason</button>
+            <button className="selectbutton"
+            onClick={() => setMeeting("for payer to fill energetic ")}
+            >For prayer</button>
           </div>
         </div>
         <div className="result" id="result">
