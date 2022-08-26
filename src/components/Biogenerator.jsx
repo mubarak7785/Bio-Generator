@@ -72,10 +72,20 @@ export const Biogenerator = () => {
   };
 
   const generateRandomName = () => {
-    let schoolArray = ["Mubarak", "Asif", "Tousif", "Pavan","Vishal","Jhon","Satya","Vijay"];
-    setName(schoolArray[Math.floor(Math.random() * 8)]);
+    let nameArr = ["Mubarak", "Asif", "Tousif", "Pavan","Vishal","Jhon","Satya","Vijay"];
+    setName(nameArr[Math.floor(Math.random() * 8)]);
+  };
+  const generateRandomLocation = () => {
+    let nameArr = ["Belgaum", "Mumbai", "Nagpur", "Pune","Bijapur","Kashmir","Delhi","Miraj"];
+    setLocation(nameArr[Math.floor(Math.random() * 8)]);
+    console.log();
   };
 
+  const generateRandomSchool = () => {
+    let schoolArray = ["GIT Intitute", "Adarsh Internatinal School", "KLE Institute", "JNMC School","Ligayat Education School","Junnedia BRT School","Puna College Branch SChool","Gogte Technology School"];
+    setSchool(schoolArray[Math.floor(Math.random() * 8)]);
+    console.log();
+  };
   const photoUpload = (e) => {
     const reader = new FileReader();
     const file = e.target.files[0];
@@ -126,7 +136,7 @@ export const Biogenerator = () => {
             value={location}
             onChange={handleInputLocation}
             ></input>
-            <button>Random Location</button>
+            <button onClick={generateRandomLocation}>Random Location</button>
           </div>
           <div className="box">
             <input type="checkbox" value="false" checked={isCheckedSchool}
@@ -136,7 +146,7 @@ export const Biogenerator = () => {
               value={school}
               onChange={handleInputSchool}
             ></input>
-            <button>Random School</button>
+            <button onClick={generateRandomSchool}>Random School</button>
             <br />
             <label>Specialization</label>
             <input type="text"
